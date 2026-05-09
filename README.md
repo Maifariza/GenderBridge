@@ -6,7 +6,7 @@
   <img width="1672" height="941" alt="Cover GenderBridge" src="https://github.com/user-attachments/assets/920335b4-c825-48e8-b4eb-08a6660ded31" />
 </p>
 
-**Kelompok Alakadarnya**
+---
 
 | **Nama**                         | **NIM**     | **Kelas**           | **GitHub** |
 |----------------------------------|------------|----------------------|------------|
