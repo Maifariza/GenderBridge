@@ -159,3 +159,9 @@ Database **gender_dss** terdiri dari beberapa tabel utama yang digunakan untuk m
 | role | ENUM('admin','hr','manager') | Role pengguna sistem |
 
 ---
+
+<div align="center">
+
+୨ৎ GenderBridge — Empowering Equality Through Data ୨ৎ
+
+</div>
