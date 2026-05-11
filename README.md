@@ -24,13 +24,15 @@
 - [Role Pengguna](#role-pengguna)
 - [Fitur Website](#fitur-website)
 - [Struktur Database](#struktur-database)
-  - [Tabel dim_company](#-tabel-dim_company)
-  - [Tabel dim_department](#-tabel-dim_department)
-  - [Tabel dim_gender](#-tabel-dim_gender)
-  - [Tabel dim_job_level](#-tabel-dim_job_level)
-  - [Tabel fact_employee](#-tabel-fact_employee)
-  - [Tabel staging_gender](#-tabel-staging_gender)
-  - [Tabel users](#-tabel-users)
+  - [Tabel dim_company](#tabel-dim_company)
+  - [Tabel dim_department](#tabel-dim_department)
+  - [Tabel dim_gender](#tabel-dim_gender)
+  - [Tabel dim_job_level](#tabel-dim_job_level)
+  - [Tabel fact_employee](#tabel-fact_employee)
+  - [Tabel staging_gender](#tabel-staging_gender)
+  - [Tabel users](#tabel-users)
+
+    
 ---
 
 ## Latar Belakang
@@ -80,35 +82,35 @@ GenderBridge merupakan website berbasis Business Intelligence (BI) dan Decision 
 
 Database **gender_dss** terdiri dari beberapa tabel utama yang digunakan untuk menyimpan data karyawan, data pendukung, dan data pengguna sistem.
 
-### ᯓ★ Tabel `dim_company`
+### Tabel `dim_company`
 
 | Kolom | Tipe | Keterangan |
 |---|---|---|
 | company_id | INT | Primary key, ID perusahaan |
 | company_name | VARCHAR(100) | Nama perusahaan |
 
-### ᯓ★ Tabel `dim_department`
+### Tabel `dim_department`
 
 | Kolom | Tipe | Keterangan |
 |---|---|---|
 | department_id | INT | Primary key, ID departemen |
 | department | VARCHAR(100) | Nama departemen |
 
-### ᯓ★ Tabel `dim_gender`
+### Tabel `dim_gender`
 
 | Kolom | Tipe | Keterangan |
 |---|---|---|
 | gender_id | INT | Primary key, ID gender |
 | gender | VARCHAR(50) | Jenis gender karyawan |
 
-### ᯓ★ Tabel `dim_job_level`
+### Tabel `dim_job_level`
 
 | Kolom | Tipe | Keterangan |
 |---|---|---|
 | job_level_id | INT | Primary key, ID level jabatan |
 | job_level | VARCHAR(100) | Level jabatan karyawan |
 
-### ᯓ★ Tabel `fact_employee`
+### Tabel `fact_employee`
 
 | Kolom | Tipe | Keterangan |
 |---|---|---|
@@ -126,7 +128,7 @@ Database **gender_dss** terdiri dari beberapa tabel utama yang digunakan untuk m
 | salary_category | VARCHAR(50) | Kategori gaji karyawan |
 | performance_score | FLOAT | Skor performa karyawan |
 
-### ᯓ★ Tabel `staging_gender`
+### Tabel `staging_gender`
 
 | Kolom | Tipe | Keterangan |
 |---|---|---|
@@ -146,7 +148,7 @@ Database **gender_dss** terdiri dari beberapa tabel utama yang digunakan untuk m
 | service_category | VARCHAR(50) | Kategori masa kerja karyawan |
 | performance_score | FLOAT | Skor performa karyawan |
 
-### ᯓ★ Tabel `users`
+### Tabel `users`
 
 | Kolom | Tipe | Keterangan |
 |---|---|---|
