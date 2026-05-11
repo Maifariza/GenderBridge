@@ -45,7 +45,7 @@ GenderBridge dibuat untuk membantu perusahaan mengelola dan menganalisis data ka
 
 ## Deskripsi Website
 
-GenderBridge merupakan website berbasis Business Intelligence (BI) dan Decision Support System (DSS) yang dirancang untuk membantu perusahaan menganalisis kesetaraan gender berdasarkan data karyawan. Sistem ini dibangun untuk mengelola data dari beberapa perusahaan secara terstruktur melalui proses ETL (Extract, Transform, Load) dan data warehouse menggunakan model Star Schema. GenderBridge menampilkan dashboard interaktif, visualisasi data, serta insight terkait gender, gaji, promosi, pelatihan, dan performa karyawan agar informasi lebih mudah dipahami. Selain itu, sistem juga menyediakan fitur rekomendasi sederhana untuk membantu HR dan manajemen mengambil keputusan yang lebih adil, cepat, dan berbasis data.
+GenderBridge merupakan website berbasis _Business Intelligence_ (BI) dan _Decision Support System_ (DSS) yang dirancang untuk membantu perusahaan menganalisis kesetaraan gender berdasarkan data karyawan. Sistem ini dibangun untuk mengelola data dari beberapa perusahaan secara terstruktur melalui proses ETL (_Extract, Transform, Load_) dan data warehouse menggunakan model _Star Schema_. GenderBridge menampilkan dashboard interaktif, visualisasi data, serta insight terkait gender, gaji, promosi, pelatihan, dan performa karyawan agar informasi lebih mudah dipahami. Selain itu, sistem juga menyediakan fitur rekomendasi sederhana untuk membantu HR dan manajemen mengambil keputusan yang lebih adil, cepat, dan berbasis data.
 
 ---
 
