@@ -18,19 +18,19 @@
 
 ## Daftar Isi .✦ ݁˖
 
+
 - [Latar Belakang](#latar-belakang)
 - [Deskripsi Website](#deskripsi-website)
 - [Role Pengguna](#role-pengguna)
 - [Fitur Website](#fitur-website)
 - [Struktur Database](#struktur-database)
-  - [Tabel dim_company](#tabel-dim_company)
-  - [Tabel dim_department](#tabel-dim_department)
-  - [Tabel dim_gender](#tabel-dim_gender)
-  - [Tabel dim_job_level](#tabel-dim_job_level)
-  - [Tabel fact_employee](#tabel-fact_employee)
-  - [Tabel staging_gender](#tabel-staging_gender)
-  - [Tabel users](#tabel-users)
-
+  - [Tabel dim_company](#-tabel-dim_company)
+  - [Tabel dim_department](#-tabel-dim_department)
+  - [Tabel dim_gender](#-tabel-dim_gender)
+  - [Tabel dim_job_level](#-tabel-dim_job_level)
+  - [Tabel fact_employee](#-tabel-fact_employee)
+  - [Tabel staging_gender](#-tabel-staging_gender)
+  - [Tabel users](#-tabel-users)
 ---
 
 ## Latar Belakang
