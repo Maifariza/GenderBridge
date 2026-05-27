@@ -1,4 +1,4 @@
-<h1 align="center">GenderBridge</h2>
+<h1 align="center">GenderBridge</h2> 
 
 <p align="center"><em>Bridging Data, Empowering Equality</em></p>
 
