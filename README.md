@@ -24,12 +24,15 @@
 - [Role Pengguna](#role-pengguna)
 - [Fitur Website](#fitur-website)
 - [Struktur Database](#struktur-database)
+  - [Tabel company_collaboration](#tabel-company_collaboration)
   - [Tabel dim_company](#tabel-dim_company)
   - [Tabel dim_department](#tabel-dim_department)
   - [Tabel dim_gender](#tabel-dim_gender)
   - [Tabel dim_job_level](#tabel-dim_job_level)
   - [Tabel fact_employee](#tabel-fact_employee)
+  - [Tabel settings](#tabel-settings)
   - [Tabel staging_gender](#tabel-staging_gender)
+  - [Tabel staging_kaggle](#tabel-staging_kaggle)
   - [Tabel users](#tabel-users)
 
     
@@ -53,9 +56,9 @@ GenderBridge merupakan website berbasis _Business Intelligence_ (BI) dan _Decisi
 
 | Role | Hak Akses |
 |---|---|
-| **Admin** | Memiliki akses penuh terhadap sistem. Admin dapat mengelola data karyawan, data perusahaan, data departemen, serta mengatur akun pengguna pada website GenderBridge. |
+| **Admin** | Memiliki akses penuh terhadap sistem. Admin dapat mengelola data karyawan, data perusahaan, data departemen, data promosi dan pelatihan, serta mengatur akun pengguna dan konfigurasi sistem pada website GenderBridge. |
 | **HR (_Human Resource_)** | Mengelola dan menganalisis data karyawan. HR dapat melihat dashboard, memantau kesetaraan gender, melihat data promosi, pelatihan, performa karyawan, serta menggunakan hasil rekomendasi dari sistem. |
-| **Manager** | Melihat dashboard dan insight yang ditampilkan sistem untuk membantu proses pengambilan keputusan berdasarkan data karyawan dan kondisi kesetaraan gender pada perusahaan. |
+| **Manager** | Melihat dashboard, laporan analitik, dan insight yang ditampilkan sistem untuk membantu proses pengambilan keputusan berdasarkan data karyawan dan kondisi kesetaraan gender pada perusahaan. |
 
 ---
 
@@ -63,24 +66,39 @@ GenderBridge merupakan website berbasis _Business Intelligence_ (BI) dan _Decisi
 
 | Fitur | Deskripsi |
 |---|---|
-| **Login System** | Sistem login untuk membatasi akses pengguna berdasarkan role seperti Admin, HR, dan Manager. |
-| **Dashboard Interaktif** | Menampilkan visualisasi data karyawan, distribusi gender, promosi, pelatihan, gaji, dan performa karyawan secara real-time. |
-| **Manajemen Data Karyawan** | Fitur untuk melihat, menambah, mengubah, dan menghapus data karyawan pada sistem. |
-| **Manajemen Data Departemen** | Fitur untuk mengelola data departemen yang digunakan dalam analisis dashboard. |
+| **Login System** | Sistem login untuk membatasi akses pengguna berdasarkan role seperti Admin, HR, dan Manager agar keamanan data pada website GenderBridge lebih terjaga. |
+| **Dashboard Interaktif** | Menampilkan visualisasi data karyawan, distribusi gender, promosi, pelatihan, gaji, dan performa karyawan secara real-time dalam bentuk grafik dan statistik interaktif. |
+| **Manajemen Data Karyawan** | Fitur untuk melihat, menambah, mengubah, menghapus, mencari, dan memfilter data karyawan pada sistem GenderBridge. |
+| **Manajemen Data Departemen** | Fitur untuk mengelola data departemen perusahaan yang digunakan dalam proses analisis dan visualisasi dashboard DSS. |
 | **Analisis Kesetaraan Gender** | Menampilkan perbandingan jumlah karyawan laki-laki dan perempuan berdasarkan perusahaan, departemen, dan level jabatan. |
-| **Analisis Gaji** | Menampilkan rata-rata gaji berdasarkan gender dan departemen untuk membantu analisis kompensasi karyawan. |
-| **Analisis Promosi dan Pelatihan** | Menampilkan data promosi dan pelatihan berdasarkan gender untuk membantu melihat pemerataan kesempatan kerja. |
-| **Performance Score** | Menghitung skor performa karyawan berdasarkan masa kerja, promosi, pelatihan, kepuasan kerja, dan level jabatan. |
-| **Rekomendasi Promosi** | Memberikan rekomendasi promosi karyawan berdasarkan performance score dan level jabatan. |
-| **Data Warehouse** | Menyimpan data menggunakan model Star Schema agar data lebih terstruktur dan mudah dianalisis. |
-| **ETL Process** | Proses Extract, Transform, dan Load untuk membersihkan serta menyiapkan data sebelum digunakan pada sistem dan dashboard. |
-| **Insight Otomatis** | Menampilkan insight sederhana terkait kondisi kesetaraan gender berdasarkan hasil analisis data. |
+| **Analisis Gaji** | Menampilkan rata-rata gaji berdasarkan gender dan departemen untuk membantu analisis kesetaraan kompensasi karyawan. |
+| **Analisis Promosi dan Pelatihan** | Menampilkan data promosi dan pelatihan berdasarkan gender untuk membantu melihat pemerataan kesempatan pengembangan karier karyawan. |
+| **Performance Score** | Menghitung skor performa karyawan berdasarkan masa kerja, promosi, pelatihan, kepuasan kerja, dan level jabatan sebagai indikator evaluasi kinerja. |
+| **Rekomendasi Promosi** | Memberikan rekomendasi promosi karyawan berdasarkan performance score, pengalaman kerja, dan level jabatan menggunakan pendekatan DSS. |
+| **Data Warehouse** | Menyimpan data menggunakan model *Star Schema* agar data lebih terstruktur, terintegrasi, dan mudah dianalisis dalam proses pengambilan keputusan. |
+| **ETL Process** | Proses *Extract, Transform, dan Load* untuk membersihkan, mengolah, dan menyiapkan data sebelum digunakan pada sistem dashboard dan analisis DSS. |
+| **Insight Otomatis** | Menampilkan insight dan rekomendasi otomatis terkait kondisi kesetaraan gender berdasarkan hasil analisis data pada sistem. |
+| **Light Mode & Dark Mode** | Menyediakan tampilan Light Mode dan Dark Mode untuk meningkatkan kenyamanan visual pengguna saat menggunakan website dalam berbagai kondisi pencahayaan. |
 
 ---
 
 ## Struktur Database
 
-Database **gender_dss** terdiri dari beberapa tabel utama yang digunakan untuk menyimpan data karyawan, data pendukung, dan data pengguna sistem.
+Database **gender_dss_baru** terdiri dari beberapa tabel utama yang digunakan untuk menyimpan data karyawan, data analitik, data kolaborasi perusahaan, pengaturan sistem, dan data pengguna pada website GenderBridge.
+
+### Tabel `company_collaboration`
+
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| id | INT | Primary key, ID pengajuan kolaborasi |
+| company_name | VARCHAR(150) | Nama perusahaan |
+| email | VARCHAR(150) | Email perusahaan |
+| phone | VARCHAR(30) | Nomor telepon perusahaan |
+| dataset_file | VARCHAR(255) | File dataset perusahaan |
+| submission_status | ENUM | Status pengajuan kolaborasi |
+| admin_note | TEXT | Catatan admin terhadap pengajuan |
+| created_at | TIMESTAMP | Waktu pengajuan dibuat |
+| updated_at | TIMESTAMP | Waktu pengajuan diperbarui |
 
 ### Tabel `dim_company`
 
@@ -128,6 +146,13 @@ Database **gender_dss** terdiri dari beberapa tabel utama yang digunakan untuk m
 | salary_category | VARCHAR(50) | Kategori gaji karyawan |
 | performance_score | FLOAT | Skor performa karyawan |
 
+### Tabel `settings`
+
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| setting_key | VARCHAR(100) | Primary key pengaturan sistem |
+| setting_value | TEXT | Nilai pengaturan sistem |
+
 ### Tabel `staging_gender`
 
 | Kolom | Tipe | Keterangan |
@@ -136,17 +161,32 @@ Database **gender_dss** terdiri dari beberapa tabel utama yang digunakan untuk m
 | company_name | VARCHAR(100) | Nama perusahaan |
 | department | VARCHAR(100) | Nama departemen |
 | gender | VARCHAR(50) | Gender karyawan |
-| job_level | VARCHAR(100) | Level jabatan karyawan |
+| job_level | VARCHAR(100) | Level jabatan |
 | years_of_service | FLOAT | Lama masa kerja karyawan |
 | salary | FLOAT | Data gaji karyawan |
-| promotion_last_2_years | VARCHAR(20) | Status promosi dalam 2 tahun terakhir |
+| promotion_last_2_years | VARCHAR(20) | Status promosi 2 tahun terakhir |
 | leadership_training | VARCHAR(20) | Status pelatihan kepemimpinan |
 | job_satisfaction | INT | Nilai kepuasan kerja karyawan |
-| salary_category | VARCHAR(50) | Kategori gaji karyawan |
-| promotion_status | VARCHAR(50) | Status promosi karyawan |
-| training_status | VARCHAR(50) | Status pelatihan karyawan |
-| service_category | VARCHAR(50) | Kategori masa kerja karyawan |
+| salary_category | VARCHAR(50) | Kategori gaji |
+| promotion_status | VARCHAR(50) | Status promosi |
+| training_status | VARCHAR(50) | Status pelatihan |
+| service_category | VARCHAR(50) | Kategori masa kerja |
 | performance_score | FLOAT | Skor performa karyawan |
+
+### Tabel `staging_kaggle`
+
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| id | INT | ID data |
+| name | VARCHAR(100) | Nama karyawan |
+| age | INT | Umur karyawan |
+| gender | VARCHAR(50) | Gender karyawan |
+| department | VARCHAR(100) | Departemen karyawan |
+| salary | INT | Gaji karyawan |
+| joining_date | DATE | Tanggal bergabung |
+| performance_score | FLOAT | Skor performa |
+| experience | INT | Lama pengalaman kerja |
+| status | VARCHAR(50) | Status karyawan |
 
 ### Tabel `users`
 
